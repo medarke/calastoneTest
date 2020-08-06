@@ -2,7 +2,7 @@
 {
     public interface ITextFilter
     {
-        void SetNextHandler(ITextFilter handler);
+        void SetNextFilter(ITextFilter handler);
         void Process(Request request);
     }
 }

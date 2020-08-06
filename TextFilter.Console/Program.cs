@@ -17,6 +17,9 @@ namespace TextFilter.Console
             LessThanThreeTextFilter lessThanThreeHandler = new LessThanThreeTextFilter();
             ContainsLetterTTextFilter containsLetterTHandler = new ContainsLetterTTextFilter();
 
+            middleVowelHandler.SetNextFilter(lessThanThreeHandler);
+            lessThanThreeHandler.SetNextFilter(containsLetterTHandler);
+
 
             string line;
             while ((line = file.ReadLine()) != null)
@@ -26,11 +29,6 @@ namespace TextFilter.Console
                 foreach (var word in words)
                 {
                     var request = new Request() { Word = word.Trim() };
-
-
-
-                    middleVowelHandler.SetNextHandler(lessThanThreeHandler);
-                    lessThanThreeHandler.SetNextHandler(containsLetterTHandler);
 
                     middleVowelHandler.Process(request);
 

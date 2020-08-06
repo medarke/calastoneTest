@@ -10,7 +10,7 @@ namespace TextFilter.Core
             _nextHandler = null;
         }
 
-        public void SetNextHandler(ITextFilter handler)
+        public void SetNextFilter(ITextFilter handler)
         {
             _nextHandler = handler;
         }
