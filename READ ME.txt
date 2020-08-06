@@ -1,0 +1,2 @@
+Change the value of the sample.txt path in the App.config inside the console project.
+Ayo
