@@ -13,6 +13,11 @@ namespace TextFilter.Console
             string filePath = ConfigurationManager.AppSettings["textFilePath"];
             StreamReader file = new StreamReader(filePath);
 
+            MiddleVowelTextFilter middleVowelHandler = new MiddleVowelTextFilter();
+            LessThanThreeTextFilter lessThanThreeHandler = new LessThanThreeTextFilter();
+            ContainsLetterTTextFilter containsLetterTHandler = new ContainsLetterTTextFilter();
+
+
             string line;
             while ((line = file.ReadLine()) != null)
             {
@@ -22,9 +27,7 @@ namespace TextFilter.Console
                 {
                     var request = new Request() { Word = word.Trim() };
 
-                    MiddleVowelTextFilter middleVowelHandler = new MiddleVowelTextFilter();
-                    LessThanThreeTextFilter lessThanThreeHandler = new LessThanThreeTextFilter();
-                    ContainsLetterTTextFilter containsLetterTHandler = new ContainsLetterTTextFilter();
+
 
                     middleVowelHandler.SetNextHandler(lessThanThreeHandler);
                     lessThanThreeHandler.SetNextHandler(containsLetterTHandler);
